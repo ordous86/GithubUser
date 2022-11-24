@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listItemClickListener"
+            type="com.lucian.githubuser.UserListFragment.ListItemClickListener"/>
+
+        <variable
+            name="user"
+            type="com.lucian.githubuser.UserListRepository.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?android:listPreferredItemPaddingStart"
+        android:layout_marginEnd="?android:listPreferredItemPaddingEnd"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> listItemClickListener.onItemClick(user.login)}">
+
+        <ImageView
+            android:id="@+id/item_avatar"
+            android:layout_width="@dimen/secondary_view_size"
+            android:layout_height="@dimen/secondary_view_size"
+            android:scaleType="centerCrop"
+            android:layout_margin="?android:listPreferredItemPaddingStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:imageUrl="@{user.avatarUrl}"/>
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.login}"
+            android:layout_margin="?android:listPreferredItemPaddingStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/item_avatar"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

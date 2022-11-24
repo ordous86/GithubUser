@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GithubUser</string>
+    <string name="load_list_error">Fail to load user list.</string>
+    <string name="load_detail_error">Fail to load user detail.</string>
+</resources>

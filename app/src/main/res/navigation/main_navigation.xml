@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/user_list_fragment">
+
+    <fragment
+        android:id="@+id/user_list_fragment"
+        android:name="com.lucian.githubuser.UserListFragment"
+        android:label="UserListFragment"
+        tools:layout="@layout/user_list">
+
+        <action
+            android:id="@+id/action_to_detail"
+            app:destination="@id/user_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_detail_fragment"
+        android:name="com.lucian.githubuser.UserDetailFragment"
+        android:label="UserDetailFragment"
+        tools:layout="@layout/user_detail">
+
+        <argument
+            android:name="userLogin"
+            app:nullable="false"/>
+
+        <action
+            android:id="@+id/action_back"
+            app:destination="@id/user_list_fragment"
+            app:popUpTo="@id/user_list_fragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+
+    </fragment>
+
+</navigation>
